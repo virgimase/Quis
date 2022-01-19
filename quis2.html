@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Konversi suhu Celcius, kelvin dan Fahrenheit</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+		<h1 class="text-center mt-4 mb-4">Konvesi Suhu</h1>
+		<div class="card shadow">
+			<div class="card-header">
+				<h5>Input nilai yang akan dikonversi</h5>
+			</div>
+			<div class="card-body">
+				<div class="form-group">
+				    <label for="nilai_suhu">Suhu</label>
+				    <input type="text" class="form-control" id="nilai_suhu" placeholder="Suhu">
+				</div>
+				<div class="form-group">
+				    <label for="satuan_ke">Konversi Ke</label>
+				    <select class="form-control" id="satuan_ke">
+				      <option value="fahrenheit">Fahrenheit</option>
+				      <option value="kelvin">Kelvin</option>
+                      <option value="Celcius">Celcius</option>
+				    </select>
+				</div>
+				<div class="form-group">
+				    <label for="hasil">Hasil</label>
+				    <input type="text" class="form-control" id="hasil" placeholder="Hasil Konversi">
+				</div>
+			</div>
+			<div class="card-footer">
+				<button type="button" id="konversi" class="btn btn-primary">Konversi</button>
+                </div>
+                <script type="text/javascript">
+                    $('#konversi').on('click', function(){
+                        var suhu = $('#nilai_suhu').val();
+                        const satuan_ke = $('#satuan_ke').val();
+            
+                        var hasil = 0;
+            
+                        if (suhu != "") {
+                            suhu = parseFloat(suhu);
+            
+                            if (satuan_ke == "kelvin") {
+                                hasil = suhu + 220.20;
+                            } else if (satuan_ke == "fahrenheit") {
+                                hasil = (6/3*suhu) + 32;
+                            } else if (satuan_ke == "celcius") {
+                                hasil = (6/7*suhu);
+                            }
+            
+                            $('#hasil').val(hasil);
+            
+                        }
+                    });
+                </script>
+            </body>
+            </html>
